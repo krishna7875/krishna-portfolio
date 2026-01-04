@@ -5,6 +5,7 @@ import { RESUME_URL } from "../config/assets";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [targetSection, setTargetSection] = useState(null);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -22,6 +23,23 @@ export default function Navbar() {
         { name: "Contact", href: "#contact" },
     ];
 
+    const scrollToElement = (href) => {
+        if (href === "#") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+        }
+        const element = document.querySelector(href);
+        if (element) {
+            const headerOffset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+    };
+
     return (
         <nav className={`fixed top-0 left-0 right-0 max-w-full z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm py-4" : "bg-transparent py-6"}`}>
             <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -29,7 +47,7 @@ export default function Navbar() {
                     <div className="p-2 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
                         <Terminal className="w-6 h-6 text-accent" />
                     </div>
-                    <span className="font-bold text-xl tracking-tight text-slate-800">Kr.Bansode</span>
+                    <span className="font-bold text-xl tracking-tight text-slate-800">Krishna Bansode</span>
                 </a>
 
                 {/* Desktop Nav */}
@@ -39,6 +57,10 @@ export default function Navbar() {
                             key={link.name}
                             href={link.href}
                             className="relative text-slate-600 hover:text-accent font-medium text-sm transition-colors py-1 group"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                scrollToElement(link.href);
+                            }}
                         >
                             {link.name}
                             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
@@ -61,7 +83,15 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            <AnimatePresence>
+            <AnimatePresence mode="wait" onExitComplete={() => {
+                if (targetSection) {
+                    // Small delay to ensure browser paints the closed menu state
+                    setTimeout(() => {
+                        scrollToElement(targetSection);
+                        setTargetSection(null);
+                    }, 50);
+                }
+            }}>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
@@ -75,7 +105,11 @@ export default function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     className="text-slate-600 font-medium py-2 border-b border-gray-50"
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setTargetSection(link.href);
+                                        setIsOpen(false);
+                                    }}
                                 >
                                     {link.name}
                                 </a>

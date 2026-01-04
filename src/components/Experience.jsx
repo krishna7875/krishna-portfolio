@@ -88,7 +88,7 @@ export default function Experience() {
         {
             role: "Software Engineer",
             company: "Heatcon Systems",
-            period: "Dec 2020 – Apr 2022",
+            period: "June 2021 – Apr 2022",
             description: "Contributed to MarathaMilan platform optimization.",
             achievements: [
                 "Enhanced backend logic for critical user flows.",

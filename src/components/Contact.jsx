@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import Section from "./ui/Section";
-import { Mail, Phone, Linkedin, Github, Coffee, Loader2, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Instagram, Facebook, Loader2, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -93,12 +93,20 @@ export default function Contact() {
                                 </div>
                                 <span className="font-medium">+91 8329412838</span>
                             </a>
-                            <a href="https://linkedin.com/in/krishna-bansode" target="_blank" className="flex items-center gap-3 text-white hover:text-accent transition-colors">
-                                <div className="p-3 bg-slate-800 rounded-lg">
+                            <div className="flex items-center gap-4 mt-2">
+                                <a href="https://github.com/krishna7875" target="_blank" rel="noopener noreferrer" aria-label="Krishna Bansode GitHub profile" className="p-3 bg-slate-800 rounded-lg text-white hover:text-accent hover:scale-110 hover:bg-slate-700 transition-all border border-slate-700 hover:border-accent/50">
+                                    <Github className="w-5 h-5" />
+                                </a>
+                                <a href="https://linkedin.com/in/krishna-bansode" target="_blank" rel="noopener noreferrer" aria-label="Krishna Bansode LinkedIn profile" className="p-3 bg-slate-800 rounded-lg text-white hover:text-accent hover:scale-110 hover:bg-slate-700 transition-all border border-slate-700 hover:border-accent/50">
                                     <Linkedin className="w-5 h-5" />
-                                </div>
-                                <span className="font-medium">linkedin.com/in/krishna-bansode</span>
-                            </a>
+                                </a>
+                                <a href="https://www.instagram.com/krishna_b1803?igsh=aHlsdWl4MXhkOGUw" target="_blank" rel="noopener noreferrer" aria-label="Krishna Bansode Instagram profile" className="p-3 bg-slate-800 rounded-lg text-white hover:text-accent hover:scale-110 hover:bg-slate-700 transition-all border border-slate-700 hover:border-accent/50">
+                                    <Instagram className="w-5 h-5" />
+                                </a>
+                                <a href="https://www.facebook.com/share/1BuRhY6fdC" target="_blank" rel="noopener noreferrer" aria-label="Krishna Bansode Facebook profile" className="p-3 bg-slate-800 rounded-lg text-white hover:text-accent hover:scale-110 hover:bg-slate-700 transition-all border border-slate-700 hover:border-accent/50">
+                                    <Facebook className="w-5 h-5" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 

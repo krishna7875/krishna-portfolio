@@ -114,7 +114,7 @@ export default function Navbar() {
                                     {link.name}
                                 </a>
                             ))}
-                            <a href={RESUME_URL} className="text-center py-3 bg-accent text-white rounded-lg font-medium mt-2">
+                            <a href={RESUME_URL} target="_blank" className="text-center py-3 bg-accent text-white rounded-lg font-medium mt-2">
                                 Download Resume
                             </a>
                         </div>

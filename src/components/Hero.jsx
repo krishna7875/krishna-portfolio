@@ -134,7 +134,7 @@ export default function Hero() {
                         <a href="#projects" className="px-7 py-3.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-500 hover:scale-105 transition-all flex items-center gap-2 shadow-lg shadow-blue-500/25 active:scale-95 border border-transparent">
                             View Projects <ArrowRight className="w-4 h-4" />
                         </a>
-                        <a href={RESUME_URL} className="px-7 py-3.5 bg-slate-900/50 text-slate-300 border border-slate-700 font-medium rounded-lg hover:border-slate-500 hover:text-white hover:bg-slate-800 hover:scale-105 transition-all flex items-center gap-2 active:scale-95 backdrop-blur-sm">
+                        <a href={RESUME_URL} target="_blank" className="px-7 py-3.5 bg-slate-900/50 text-slate-300 border border-slate-700 font-medium rounded-lg hover:border-slate-500 hover:text-white hover:bg-slate-800 hover:scale-105 transition-all flex items-center gap-2 active:scale-95 backdrop-blur-sm">
                             Download Resume <Download className="w-4 h-4" />
                         </a>
                     </motion.div>
